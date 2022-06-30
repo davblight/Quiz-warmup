@@ -109,8 +109,8 @@ var app = new Vue({
             let score = 0;
             this.page = "score"
             for (bool in this.answers) {
-                if (bool == true) {
-                    score += 1
+                if (this.answers[bool] == true) {
+                    score += 1;
                 }
             }
             return `${score} / 5`
