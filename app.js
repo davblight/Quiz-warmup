@@ -41,17 +41,25 @@ Vue.component('question', {
 
             <br>
 
-            <button v-if="page != 1" v-on:click="previous-question">Back</button>
-            <button v-if="page != 5 && answers[index] != null" v-on:click="next-question">Next Question</button>
+            <button v-if="page != 1" v-on:click="previousQuestion()">Back</button>
+            <button v-if="page != 5 && answers[index] != null" v-on:click="nextQuestion()">Next Question</button>
     </div>`,
     props: [
         "question",
         "index",
         "answers",
         "page",
-        "next-question",
-        "previous-question"
+        //"next-question",
+        //"previous-question"
     ],
+    methods: {
+        previousQuestion: function () {
+            app.previousQuestion();
+        },
+        nextQuestion: function () {
+            app.nextQuestion();
+        }
+    }
 })
 
 var QUIZ = [
