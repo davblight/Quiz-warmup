@@ -26,6 +26,34 @@ var QUIZ = [
 ]
 */
 
+Vue.component('question', {
+    template: `
+    <div>
+        <h2>{{ question.title }}</h2><br>
+            <p>{{ question.question }}</p><br>
+            <select name="Answers" v-model="answers[index]" style="margin: 10px;">
+                <option></option>
+                <option v-bind:value="question.answers[0].correct">{{ question.answers[0].opt1 }}</option>
+                <option v-bind:value="question.answers[1].correct">{{ question.answers[1].opt1 }}</option>
+                <option v-bind:value="question.answers[2].correct">{{ question.answers[2].opt1 }}</option>
+                <option v-bind:value="question.answers[3].correct">{{ question.answers[3].opt1 }}</option>
+            </select>
+
+            <br>
+
+            <button v-if="page != 1" v-on:click="previous-question">Back</button>
+            <button v-if="page != 5 && answers[index] != null" v-on:click="next-question">Next Question</button>
+    </div>`,
+    props: [
+        "question",
+        "index",
+        "answers",
+        "page",
+        "next-question",
+        "previous-question"
+    ],
+})
+
 var QUIZ = [
     {
         title: "Question 1",
@@ -75,7 +103,7 @@ var QUIZ = [
         title: "Question 5",
         question: "How tall is space?",
         answers: [
-            {opt1: "!4", correct: false},
+            {opt1: "14", correct: false},
             {opt1: "Taller than your mom", correct: false},
             {opt1: "Not as big as your mom", correct: true},
             {opt1: "63 miles", correct: false}

@@ -12,23 +12,14 @@
 
         <!-- Quiz page -->
         <div v-for="(question, index) in myQuiz" v-if="page == index + 1">
-            <h2>{{ question.title }}</h2><br>
-            <p>{{ question.question }}</p><br>
-            <select name="Answers" v-model="answers[index]" style="margin: 10px;">
-                <option></option>
-                <option v-bind:value="question.answers[0].correct">{{ question.answers[0].opt1 }}</option>
-                <option v-bind:value="question.answers[1].correct">{{ question.answers[1].opt1 }}</option>
-                <option v-bind:value="question.answers[2].correct">{{ question.answers[2].opt1 }}</option>
-                <option v-bind:value="question.answers[3].correct">{{ question.answers[3].opt1 }}</option>
-            </select>
-
-            <br>
-
-            <button v-if="page != 1" v-on:click="previousQuestion()">Back</button>
-            <button v-if="page != 5 && answers[index] != null" v-on:click="nextQuestion()">Next Question</button>
+            <question
+                v-bind:question="question"
+                v-bind:index="index"
+                v-bind:answers="answers"
+                v-bind:page="page"
+                v-bind:next-question="nextQuestion()"
+                v-bind:previous-question="previousQuestion()"></question>
         </div>
-        <button v-if="areAllQuestionsAnswered() && page == 5" v-on:click="calculateScore" style="margin-top: 15px;">Calcualate Score</button>
-
         <!-- Score page -->
         <div v-if="page == 6">
             You scored: {{ calculateScore() }}
