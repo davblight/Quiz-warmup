@@ -91,15 +91,19 @@ var app = new Vue({
     data:{
         // to attach your global quiz variable to a data variable:
         myQuiz: QUIZ,
-        page: "title",
+        page: 0,
         answers: []
     },
     methods:{
         // used for showing questions individually
-        nextQuestion : function () {},
+        nextQuestion : function () {
+            this.page += 1;
+        },
 
         // used for showing questions individually
-        previousQuestion : function () {},
+        previousQuestion : function () {
+            this.page -= 1;
+        },
 
         setPage: function (page) {
             this.page = page
@@ -107,7 +111,7 @@ var app = new Vue({
         
         calculateScore: function () {
             let score = 0;
-            this.page = "score"
+            this.page = 6;
             for (bool in this.answers) {
                 if (this.answers[bool] == true) {
                     score += 1;
