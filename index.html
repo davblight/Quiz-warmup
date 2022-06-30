@@ -18,6 +18,7 @@
                 v-bind:answers="answers"
                 v-bind:page="page"></question>
         </div>
+        <button v-if="areAllQuestionsAnswered() && page == 5" v-on:click="calculateScore" style="margin-top: 15px;">Calcualate Score</button>
         <!-- Score page -->
         <div v-if="page == 6">
             You scored: {{ calculateScore() }}
