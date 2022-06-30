@@ -26,6 +26,60 @@ var QUIZ = [
 ]
 */
 
+var QUIZ = [
+    {
+        title: "Question 1",
+        question: "What color is the sky?",
+        answers: [
+            {opt1: "Purple", correct: false},
+            {opt1: "Red", correct: false},
+            {opt1: "Blue", correct: true},
+            {opt1: "Green", correct: false}
+        ],
+        userInput: ""
+    },
+    {
+        title: "Question 2",
+        question: "How many clouds are in the sky?",
+        answers: [
+            {opt1: "None, they're fake", correct: false},
+            {opt1: "Probaly 14", correct: false},
+            {opt1: "At least 2", correct: true},
+            {opt1: "As many as you want", correct: false}
+        ],
+        userInput: ""
+    },
+    {
+        title: "Question 3",
+        question: "Are birds real?",
+        answers: [
+            {opt1: "Yes", correct: false},
+            {opt1: "No", correct: true}
+        ],
+        userInput: ""
+    },
+    {
+        title: "Question 4",
+        question: "Are there more planes in the ocean or submarines in the sky?",
+        answers: [
+            {opt1: "Planes in the ocean", correct: true},
+            {opt1: "Submarines in the sky", correct: false}
+        ],
+        userInput: ""
+    },
+    {
+        title: "Question 5",
+        question: "How tall is space?",
+        answers: [
+            {opt1: "!4", correct: false},
+            {opt1: "Taller than your mom", correct: false},
+            {opt1: "Not as big as your mom", correct: true},
+            {opt1: "63 miles", correct: false}
+        ],
+        userInput: ""
+    }
+]
+
 
 
 var app = new Vue({
