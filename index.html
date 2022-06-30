@@ -8,8 +8,19 @@
         <h1>Multiple Choice Quiz</h1>
 
         <!-- Title page -->
-        
+        <button v-on:click="setPage('quiz')" v-if="page == 'title'">Start Quiz</button>
+
         <!-- Quiz page -->
+        <div v-for="question in myQuiz" v-if="page == 'quiz'">
+            <h2>{{ question.title }}</h2><br>
+            <p>{{ question.question }}</p><br>
+            <select name="Answers">
+                <option value="question.answers[0].opt1">{{ question.answers[0].opt1 }}</option>
+                <option value="question.answers[1].opt1">{{ question.answers[1].opt1 }}</option>
+                <option value="question.answers[2].opt1">{{ question.answers[2].opt1 }}</option>
+                <option value="question.answers[3].opt1">{{ question.answers[3].opt1 }}</option>
+            </select>
+        </div>
 
         <!-- Score page -->
     </div>

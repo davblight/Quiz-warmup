@@ -54,7 +54,9 @@ var QUIZ = [
         question: "Are birds real?",
         answers: [
             {opt1: "Yes", correct: false},
-            {opt1: "No", correct: true}
+            {opt1: "No", correct: true},
+            {opt1: ""},
+            {opt1: ""},
         ],
         userInput: ""
     },
@@ -63,7 +65,9 @@ var QUIZ = [
         question: "Are there more planes in the ocean or submarines in the sky?",
         answers: [
             {opt1: "Planes in the ocean", correct: true},
-            {opt1: "Submarines in the sky", correct: false}
+            {opt1: "Submarines in the sky", correct: false},
+            {opt1: ""},
+            {opt1: ""},
         ],
         userInput: ""
     },
@@ -86,7 +90,8 @@ var app = new Vue({
     el: "#app",
     data:{
         // to attach your global quiz variable to a data variable:
-        // myQuiz: QUIZ,
+        myQuiz: QUIZ,
+        page: "title",
     },
     methods:{
         // used for showing questions individually
@@ -95,7 +100,9 @@ var app = new Vue({
         // used for showing questions individually
         previousQuestion : function () {},
 
-        setPage: function (page) {},
+        setPage: function (page) {
+            this.page = page
+        },
         
         calculateScore: function () {}
     },
