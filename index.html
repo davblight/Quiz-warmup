@@ -16,14 +16,18 @@
             <p>{{ question.question }}</p><br>
             <select name="Answers" v-model="answers[index]">
                 <option></option>
-                <option>{{ question.answers[0].opt1 }}</option>
-                <option value="question.answers[1].correct">{{ question.answers[1].opt1 }}</option>
-                <option value="question.answers[2].correct">{{ question.answers[2].opt1 }}</option>
-                <option value="question.answers[3].correct">{{ question.answers[3].opt1 }}</option>
+                <option v-bind:value="question.answers[0].correct">{{ question.answers[0].opt1 }}</option>
+                <option v-bind:value="question.answers[1].correct">{{ question.answers[1].opt1 }}</option>
+                <option v-bind:value="question.answers[2].correct">{{ question.answers[2].opt1 }}</option>
+                <option v-bind:value="question.answers[3].correct">{{ question.answers[3].opt1 }}</option>
             </select>
         </div>
+        <button v-if="areAllQuestionsAnswered() && page == 'quiz'" v-on:click="calculateScore">Calcualate Score</button>
 
         <!-- Score page -->
+        <div v-if="page == 'score'">
+            You scored: {{ calculateScore() }}
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
     <script src="app.js"></script>

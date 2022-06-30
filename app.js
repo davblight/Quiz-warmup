@@ -105,11 +105,25 @@ var app = new Vue({
             this.page = page
         },
         
-        calculateScore: function () {}
+        calculateScore: function () {
+            let score = 0;
+            this.page = "score"
+            for (bool in this.answers) {
+                if (bool == true) {
+                    score += 1
+                }
+            }
+            return `${score} / 5`
+        },
+        areAllQuestionsAnswered: function () {
+            if (this.answers.length == 5) {
+                return true
+            }
+        }
     },
     computed: {
         // a function that returns true if 0 userAnswer fields are blank ("")
         // IF there is still 1 or more blank ("") userAnswer field, return false
-        areAllQuestionsAnswered: function () {}
+        
     }
 });
