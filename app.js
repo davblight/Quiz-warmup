@@ -92,6 +92,7 @@ var app = new Vue({
         // to attach your global quiz variable to a data variable:
         myQuiz: QUIZ,
         page: "title",
+        answers: []
     },
     methods:{
         // used for showing questions individually
